@@ -4,6 +4,7 @@ const sourceEl = document.getElementById('source');
 const timeEl = document.getElementById('time');
 const nextPhraseBtn = document.getElementById('nextPhraseBtn');
 const cardEl = document.querySelector('.card');
+const fortuneShellEl = document.querySelector('.fortune-shell');
 const defaultButtonLabel = nextPhraseBtn.textContent;
 
 const NAAS_ENDPOINT = 'https://naas.isalman.dev/no';
@@ -77,6 +78,10 @@ const renderPhrase = ({ phrase, source }) => {
     phraseEl.textContent = phrase;
     sourceEl.textContent = source;
     setMetaTime();
+
+    fortuneShellEl.classList.remove('is-revealed');
+    void fortuneShellEl.offsetWidth;
+    fortuneShellEl.classList.add('is-revealed');
 };
 
 const loadPhrase = async () => {
